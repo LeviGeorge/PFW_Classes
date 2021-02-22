@@ -1,0 +1,4 @@
+<assign> => <id> = <expr>
+<id>	 => A | B | C
+<expr>	 => <expr> [ ( * | + ) <term> ]
+<term>	 => (<expr>) | <id>

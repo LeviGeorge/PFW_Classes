@@ -1,0 +1,12 @@
+Meaning					Ruby Case Statement
+		
+ident = var				case var
+
+if var < ident + 1 goto label		when var < ident + 1
+						label
+if var > ident - 1 goto label		when var > ident -1 
+						label
+goto label				else 
+						label
+					End
+

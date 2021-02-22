@@ -1,0 +1,14 @@
+<case_stmt>	=> case <term> <case_cond>
+<case_cond>	=> when <expr> <statement> <case_cond> |
+		   when <expr> <statement> <case_end>  |
+		   Else <statement> <case_end>
+<case_end>	=> End
+
+<term>		=> <identifier> | <constant>
+<statement>	=> <expr>
+<expr>		=> <assign> |
+		<expr>, <assign>
+<identifier> 	=> <letter>, <letter_list>
+<letter_list>	=> A | B | C ...
+
+

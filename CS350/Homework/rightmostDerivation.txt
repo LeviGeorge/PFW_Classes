@@ -1,0 +1,22 @@
+<assign> => begin <id> = <expr> end
+	 => begin <id> = <term> end
+	 => begin <id> = <term> * <factor> end
+	 => begin <id> = <term> * ( <expr ) end
+	 => begin <id> = <term> * ( <term> ) end
+	 => begin <id> = <term> * ( <term> * <factor> ) end
+	 => begin <id> = <term> * ( <term> * ( <expr> ) ) end
+	 => begin <id> = <term> * ( <term> * ( <expr> + <term> ) ) end
+	 => begin <id> = <term> * ( <term> * ( <expr> + <factor> ) ) end
+	 => begin <id> = <term> * ( <term> * ( <expr> + <id> ) ) end
+	 => begin <id> = <term> * ( <term> * ( <expr> + A ) ) end
+	 => begin <id> = <term> * ( <term> * ( <term> + A ) ) end
+	 => begin <id> = <term> * ( <term> * ( <factor> + A ) ) end
+	 => begin <id> = <term> * ( <term> * ( <id> + A ) ) end
+	 => begin <id> = <term> * ( <term> * ( B + A ) ) end
+	 => begin <id> = <term> * ( <factor> * ( B + A ) ) end
+	 => begin <id> = <term> * ( <id> * ( B + A ) ) end
+	 => begin <id> = <term> * ( C * ( B + A ) ) end
+	 => begin <id> = <factor> * ( C * ( B + A ) ) end
+	 => begin <id> = <id> * ( C * ( B + A ) ) end
+	 => begin <id> = A * ( C * ( B + A ) ) end
+	 => begin B = A * ( C * ( B + A ) ) end
