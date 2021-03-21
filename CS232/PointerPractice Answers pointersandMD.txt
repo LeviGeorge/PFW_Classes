@@ -1,0 +1,17 @@
+1. No, type mismatch
+
+2. no, type mismatch
+
+3. no, type mismatch
+
+4. no, malloc for int *
+
+5. No, read only
+
+6. out of bounds
+
+7. Uninitialized, **matrix not pointed to memory
+
+8. Yes
+
+9. Yes
