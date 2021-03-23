@@ -1,0 +1,86 @@
+** I forgot what lecture this was.... **
+
+Review
+
+-Command Line Arguments
+
+int main (int argc, char * argv[]) {...}
+**envp** - Computer Security quirk, very important
+
+-Redirection
+
+ - Input from a file: <
+ - Output to a file: >
+ - Append to a file: >>
+
+ file descriptors:
+
+ * 0  -> stdin
+ * 1  -> stdout
+ * 2  -> stderr
+
+
+-Unix views all things as a file
+-Files, Socket IO, Input, Devices
+
+Basic operations; open, close, read, write, run file
+
+Piping
+
+You can use piping to take output from some program and make it input for another.
+
+tee Command
+
+allows you to output and save information in a file.
+
+Single character I/O
+
+ - Input: int getchar(void)
+    []char is based on integers
+    []Returns the next unprocessed character from standard input
+    []Returning int permits returning EOF, which is end-of-file
+
+ - Output: int putchar (int c);
+    []Writes C to standard output
+    []Normally will return C
+    []On error, returns EOF 
+
+ - Output: printf()
+    []Prints to stdout
+    []printf takes a format string and some Arguments
+    []can have an infinite number of arguments (theoretically)
+    []printf format specifiers are flexible, providing numerous output styles
+
+    ** %[-][min][.prec][h or l]type
+    - % is required
+    - min field width, padded with spaces, adds spaces on the left unless the previous field is
+    present (the negative sign)
+    - .prec will work differently for each data type.
+    - 
+    - precision will not round, just cut off excess digits
+
+    When your data is too wide,
+    You may use precision to specify the maximum width of a string.
+    You should set the max width equal to the length of the longest value you will be printing.
+    Not very robust, you need to check your printf values before printing if formatting is neccessary.
+
+ - Input: scanf()
+    []Scanf is the counterpart to printf
+    []Scanf grabs input from standard input
+    []You will need to use memory locations for scanf, this is important
+
+    ** Format Specifiers for scanf()
+    *%[*][max][h, l, or L]type
+    * The * modifier, will read and not store the value
+    * The max modifier, indicates max field width
+    * 
+
+    []Blanks or tabs will indicate to scanf to absorb as much white space as possible. Ignoring it essentially
+    []%s will read in characters until a whitespace
+    []scanf will return the number of fields it has correctly processed, stopping after the first failure
+
+    ** NEVER USE %s IN SCANF WITHOUT SPECIFYING A MAX WIDTH
+    * It is a security risk
+
+ - FOPEN
+ []FILE* fopen(char * fileName, char mode);
