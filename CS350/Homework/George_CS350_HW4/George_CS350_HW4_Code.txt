@@ -1,0 +1,36 @@
+#Author: Levi George
+#Course: CS350
+#Assignment: Homework 4, Ruby Iterators
+
+class Transcript
+
+  def initialize()
+
+    @courses = Array.new
+  end
+
+  #puts stuff in our class array
+  def loadCourses(arrayLit)
+
+    for i in arrayLit
+
+      @courses.push(i)
+      
+    end
+    
+  end
+  
+  #course history, prints course name
+  def each 
+    @courses.each {|c| yield c}
+  end #end crseHist
+
+end #end of Transcript class
+
+levisTscript = Transcript.new
+
+levisTscript.loadCourses(["cs232", "cs350", "cs360", "cs380"])
+
+levisTscript.each do |c|
+  puts c
+end
