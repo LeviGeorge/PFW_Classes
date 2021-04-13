@@ -1,0 +1,36 @@
+Call 1
+
+print "CPU"
+
+Is print empty? (no)
+call recursingFunc(send "PU")
+
+->Call 2
+ |
+ |print "PU"
+ |
+ |Is print empty? (no)
+ |call recursingFunc(send "U")
+ |
+--->Call 3
+   |
+   |print "U"
+   |
+   |Is print empty? (no)
+   |call recursingFunc(send "")
+   |
+------->Call 4
+       |
+       |print ""
+       |
+       |Is print empty? (yes)
+       |
+       |return
+       |
+-------|Call 4 END
+   |
+---|Call 3 END
+ |
+-|Call 2 END
+
+Call 1 END
