@@ -1,0 +1,91 @@
+Review from Lecture 14
+-Header Guard [#ifndef .... / #define .... / #endif //]
+-Compiling [Use -c with GCC]
+-lm / lcs50 / lpcap / l(libname)
+
+- You should create several object files and combine them with the final source code using GCC to make an executable
+- This is not D.R.Y. though, use Make File
+- In windows, it is not makefile, for mingw32, we use mingw32-make
+- 
+
+==== MAKEFILE =====
+makefile
+* A text file
+* Specifies a set of targets and the commands for each targets
+* Can be named anything, but convention is to name it "makefile" or "Makefile"
+* Make will automatically search for these files
+
+
+General Format
+
+target:
+    gcc -g -o ......
+    //You may issue more commands for this target Header
+
+target2:
+    gcc -g -o .......
+
+* Name of target does not need to match final file output name
+* Run make from the shell
+    [] With a target name, it will run that specific command, target2 will run that command specifically
+
+Dependencies
+-This will tell the Makefile which files to update when something changes
+-You will need to tell the software that the main program is dependent on three or four, or however many files were used to compile it.
+
+General Format
+target: target1.o target2.o mainProg.c
+    gcc -g -o .....
+
+*When a file is out of date, it will sequentially check each file in the target command, in the above command.
+It checks target1.o, target2.o, then mainProg.c
+
+*If a dependency changes, the target will be rebuilt
+
+\\\\\\ Helpful Tricks ///////
+
+-Variables or Macros
+    Many .c files have their own Header
+    Compile each to an object
+    Compile and link all objects with a mainProg.c
+
+    Avoid repeating the same basic thing for every object file, target file1, file2, file3, etc. It isn't D.R.Y.
+
+    You can assign commands or file names to variables in the MAKEFILE
+
+    Syntax: CC = gcc
+            CFLAGS = -g
+            OBJS = file1.0 file2.o file3.o ......
+
+            mainProg: mainpProg.c $(OBJS)
+                $(CC) $(CFLAGS) $(OBJS) $< -o $@
+    
+    $@ will refer to target name
+    $< will refer to the first dependency
+    %  is a GNU specific wildcard
+    $
+
+    clean command will remove binary files, object files and executables
+    all target makes every target, this will often be listed first.
+
+-Default compilation rules
+-make clean
+
+Error Handling
+
+Most, if not all, standard library function have some way of indicating an error occurred
+- Examine documentation
+- Return value, NULL, 1, 0, -1 etc.
+- Setting errno
+    A global variable for error number
+
+You should always check for errors, it is never acceptable to allow just crashing.
+
+This will improve security, robustness against hardware failure, uninformed users (typically most of them).
+
+String Manipulation
+    strcpy vs. strNcpy
+    Buffer Overflow Vulnerability
+
+sscanf
+snprintf

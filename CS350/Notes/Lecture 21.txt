@@ -1,0 +1,61 @@
+Prolog - Born at Uni. of Aix-Marseille
+
+Natural Language Processing.
+
+U.o. Edinburgh attendant Kowalski
+    -Automated theorem proving
+
+Programs in logic languages are expressed in a form of symbolic logic.
+    -Use logical inferencing processes to solve problems
+
+Declarative rather than procedural
+    -declarative semantics
+        * there is a simple way to find meaning for each statement
+        * Simpler than the semantics of imperative langs.
+
+    Programming is non-procedural
+        *Programs do not state now a result is to be computed, instead the form of the result.
+
+Predicate Calculus
+    -Particular form of symbolic logic used for logic Programming
+    (Predicate calculus)
+
+    -Logic which can be used for the basic needs of formal logic
+    A. Express Propositions (Facts)
+    B. Express relationships between props. Clausal forms/ rules
+    C. Describe how new props. can be inferred from other props. Resolution and Inference
+
+Propositions
+    -A logical statement that could be true
+    -consists of objects and relationships of objects to each other
+
+    Atomic
+        -consist of compound terms
+        -Functor: function symbol that names the relationships
+        -Ordered list of parameters
+
+Facts
+    -A proposition assumed to be true
+    -May be stored in a database
+    -Headless HORN clause
+        the statements which inspire new information with inferrence
+
+Forms of Props.
+    -Have two or more atomic Propositions
+    -Propositions are connected by oeprators
+
+Clausal Form / Rule
+    -A conclusion may be drawn if a given set of conditions is satisfied
+    -Head Horn clause
+        *Antecedent: right side (if)
+        *Consequent: left side (then)
+
+Rule Statements
+    -Gen. Form
+        consequence :- antecdent_expr
+
+Variables
+    -A variable is written as a sequence of letters and digits
+        *Begins with capital letters
+    -Prolog vars are similar to unknowns in Alg.
+    

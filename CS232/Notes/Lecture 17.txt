@@ -1,0 +1,19 @@
+sscanf: %n - # of chars read
+
+sscanf(pNext, "%d%n", &theNumber, &charsRead)
+
+fgets is good for unformatted content
+
+sscanf is good for formatted content
+
+int isSorted(const char ** strings, const int n)
+    int i
+
+    for(i = 1; i < n; i++)
+    {
+        if(strcmp(*strings[i-1]), strcmp(*strings[i]) > 0)
+        {
+            printf("Strings are not alphabatized");
+        }
+    }
+    
