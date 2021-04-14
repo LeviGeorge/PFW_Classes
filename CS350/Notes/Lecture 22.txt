@@ -1,0 +1,57 @@
+Prolog (Cont.)
+
+Resolution
+
+    -Theorem proving is the basis for logic Programming
+        *A use of propositions is to discover new theorems that can be inferred from known axioms and theorems
+
+    -A resolution is an inference principle that allows inferred propositions to be computed from given propositions
+
+    -Steps
+        *Unification: finding values for variables in propositions that allows matching process to succeed
+        *instantiation: assigning temporary values to variables to allow unification to succeed
+            -If matching fails, may need to backtrack and instantiate with a different value
+
+Inferencing in Prolog
+
+    -Matching a goal to a Facts
+        *Bottom-Up Resolution, forward chaining
+            *Begin with facts and rules of database and attempt to find sequence that leads to goal
+            *Works well with a large set of possibly correct answers
+
+        *Top-Down resolution, backward chaining
+            *begin with goal and attempt to find sequence that leads to set of facts in database
+            *Works well with a small set of possibly correct answers
+    -Prolog Implementations use backward chaining
+
+Depth First Search
+
+    -When goal has more than one subgoal, can use either
+        *Depth-First: find a complete proof for the first subgoal before working on others
+            *Prolog uses this
+        *Breadth-First: Work on all subgoals in parallel
+            *Can be done with fewer computer resources
+    
+    -This can be visualized as Binary tree searches
+
+Backtracking
+    -Backtracking: With a goal with multiple subgoals, if fail to show truth of one of subgoals, reconisder previous subgoal to find alternative path
+
+    Begin search where previous left off
+
+    Can take lots of time and space because may find all possible proofs to every subgoal
+
+Deficiencies of Prolog
+
+    -Resolution order control
+        *In a pure logic environment, the order of attempted matches is nondeterministic and all matches would be attempted concurrently
+
+        *The closed-world asmpt. 
+            * The only knowledge is what is in the database
+
+        The negation problems
+            *Anything not stated in the database is assumed to be false
+
+        Intrinsic limitations
+            *It is easy to state a sort process in logic, but difficult to actually do -- it doesn't know how to sort
+        
