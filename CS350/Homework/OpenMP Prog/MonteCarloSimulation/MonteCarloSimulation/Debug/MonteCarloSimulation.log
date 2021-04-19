@@ -1,0 +1,4 @@
+﻿  MonteCarloSimulation.cpp
+C:\Users\Levi\Documents\PFW_Classes\CS350\Homework\OpenMP Prog\MonteCarloSimulation\MonteCarloSimulation\MonteCarloSimulation.cpp(22,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Levi\Documents\PFW_Classes\CS350\Homework\OpenMP Prog\MonteCarloSimulation\MonteCarloSimulation\MonteCarloSimulation.cpp(57,23): warning C4018: '<': signed/unsigned mismatch
+  MonteCarloSimulation.vcxproj -> C:\Users\Levi\Documents\PFW_Classes\CS350\Homework\OpenMP Prog\MonteCarloSimulation\Debug\MonteCarloSimulation.exe
