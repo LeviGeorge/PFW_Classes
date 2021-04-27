@@ -1,0 +1,173 @@
+Functional Programming
+
+The design of the imperative languages is based on the von Neumann Archi.
+
+Efficiency is paramount, instead of suitability of the lang. for SDEV.
+
+The objective of FPLs(Functional Programming languages) is to mimic mathematical functions to the highest degree
+
+A solid theoretical basis that is also closer to the user, but relatively unconcerned with the architecture of hte machines on which programs will run
+
+Mathematical Functions are maps that correspond a domain set of values to the range set, the values of which are determined by that function
+
+This mapping doesn't necessitate the use of memory, thus no side effects.
+
+Lambda expressions, describe nameless functions, specifies parameters and the mapping of a function
+
+For a cubing function we would 
+
+(lambda symbol[I can't type it])(x) x*x*x
+
+Lambda expressions are applied to parameters by placing the parameters after the expression, since those params are bound to a constant value, it can't change during evaluation.
+
+(lambda(x) x*x*x )(2) = 8
+
+Functional forms are functions which take functions as a parameter or yield a function as its result
+
+Composition is the act of using a function as a parameter and this yields a function whose value is the first actual parameter function applied to the application of the second.
+
+f o g, f( g(x) )
+
+Apply to all
+
+    A functional form which takes a single function as a parameter and yields a list of values obtained by applying the given function to each element of a list of parameters.
+    Uses alpha, so alpha(funcName, (2,3,4)) would yield (4, 9 ,16) if funcName was defined as funcName(x) = x * x
+
+Fundamentals of FPLs
+    - A given FPL must acquiesce to users;
+        A set of primitive functions
+        A set of functional forms to construct complex functions
+        A function application operator
+        Structures to represent data
+
+    -Were interpreted, now compiled
+
+    -Most FPLs give users imperative features 
+        Such as storing variables for later use.
+            Functional side effects (make stuff hard!)
+        In FPLs, variables are not required, like in mathematics, allowing for greater referential transparency
+
+LISP
+    -List Processing
+    -Developed by John McCarthy at MIT in 1959
+    
+    With the exception of the first version, all dialects include imperative features
+        *Imperative styled vars, assignments and iterations
+
+Intro to Scheme
+
+    - in mid 70s, developed as a clean and simpler version of the majority of lisp dialects
+    -Static-Scoping
+    -Functions are first-class entities
+        * May be the values of expressions and elements of lists
+        * They can be assigned variables, passed as parameters, and returned from functions
+
+Data types and Structures
+    -Lisp and Scheme are type-less
+    -Data objects are 
+    Atoms
+        * Symbols and Numeric Literals
+    lists
+        * Parenthesized collections of sub-lists and/or Atoms
+            -Simple (A B C D)
+            -Nested (A B (C D) E)
+    Lists are stored internally as single-linked lists
+
+Primitive Functions
+    - Primitive Arithmetics: +, -, *, /, ABS, SQRT, REMAINDER, MIN, MAX
+
+    -Parameters are evaluated, in no particular order
+        *The values of the parameters are substituted into the function body
+        *Function body is evaluated
+        *The value of the last expression in the body is the value of the function
+
+Numeric Predicate Functions
+    - A predicate function is one which returns booleans
+        * T is true and F is false (or #t and #f)
+        * When a list is interpreted as a boolean, any nonempty list evaluates to true; the empty list evaluates to false
+
+Defining Functions
+
+    -Function definitions use lambda notation
+        *Nameless function, X is called a bound variable
+        [lambda (x) (* x x)]
+        *Lambda expressions can have any number of parameters
+
+    -Function Calls
+        *A lambda expression evaluates to a function, we can evaluate this function immediately, without ever giving it a name.
+            Lambda expressions can be applied to actual parameters
+            Follow the cambridge polish (pre-fix) notation
+            (lambda (x) (* x x)) 7 
+    -Use the DEFINE Keyword
+        *To bind names to lambda expressions (lambda is implied)
+        *Case sensitive and must not begin with a digit
+
+Scheme Interpreter
+    -In interactive mode, the scheme interpeter is an infinite read-eval-print loop (REPL)
+
+DEFINE
+    *To bind a symbol to an expression
+        -define varName varValue
+        -The first is not evaluated, the second is bound to the first
+
+Functions and Data have the same form
+(A B C) - Either a list of atoms or a function (A) applied to B and C
+
+QUOTE
+    -Takes one param returns the param without eval
+    -Useful for when eval is inappropriate
+    -Can be abbrev. as '
+
+CONTROL Follow
+    -IF predicate THEN_EXP ELSE_EXP
+    Use COND for multiple selection
+    (cond ((COND_EXP) PRINT_EXP) .... (ELSE EXP))
+
+List Functions
+    -The CAR function returns the first element of its list parameter
+    -The CDR function returns its parameter list minus its first element
+
+    -The function CONS takes two parameters and returns a new list with its first parameters as the first element and its second parameter as the remainder of that list.
+    -LIST is a function for building a list from any number of params
+
+LIST? and NULL?
+    -LIST? takes one parameter; it returns #T if the parameter is a list; otherwise #F
+    -NULL? takes one parameter; it returns #T if the param is the empty list; otherwise #F
+
+EQ?
+    -Takes two expressions as arguments
+    -Returns #T if both parameters have the same pointer value, otherwise #F
+    -Two symbols is easy, two pointers?
+
+EQUAL?
+    -Returns true if both params are of the same type and their contents are equal
+    
+Output Functions
+    -Explicit input and output are not part of the pure functional programming model
+        *Because input changes the state and outputs are side effects
+    -Output functions usually not needed, because the interpreter always displays the result of a function
+        *applying EVAL to top-level functions
+
+Apply-to-All - MAP is scheme
+    *Predefined, applies the given function to all elements
+
+Composition
+    *If h is the composition of F and G
+    *(define (compose f g) (lambda (x) (f (g x))))
+
+member
+    *takes an atom and a simple list; returns #t if the atom is in the list, #f otherwise
+
+equalsimp
+    *equalsimp takes two simple lists as parameters; returns #t if the two simple lists are equal, #f otherwise
+
+append
+    *takes two lists as params returns the first param list with the elements of the second at the end
+
+Imperative languages                                    Function Languages 
+    *Efficient                                              *simple semantics and syntax
+    *Allow complexity in syntax and semantics               *no vars and function side effects
+    *Long listing and variable handling                     *high readability
+    *Requires attention to execution                        *slow interpreting
+    *Efficient with von Neumann                             *less efficiency
+    *Concurrency                                            * programs can automatically become concurrent
